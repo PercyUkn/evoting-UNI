@@ -14,13 +14,13 @@ export default class Instruksi extends Component {
         <ol className="instruction-list">
           <li>
             <h4 className="instruction">
-              Pastikan anda sudah terdaftar sebagai pemilih tetap RT XYZ, temui
-              perwakilan RT anda jika anda belum terdaftar sebagai pemilih tetap
+            Asegúrese de estar registrado como votante para las elecciones de la UNI, reúnase con su representante de RT si aún no está registrado como votante permanente
+            <br></br>(Cambiar por requisito propio de la UNI)
             </h4>
           </li>
           <li>
             <h4 className="instruction">
-              Pada menu utama, klik Registrasi untuk melakukan registrasi
+              En el menú principal, haga clic en Registrarse para registrarse
             </h4>
             <img
               src={MenuImg}

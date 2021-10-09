@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import web3 from "../../web3";
-import { infura, pk } from "../../web3";
+import web3 from "../../web3/web3";
+import { infura, pk } from "../../web3/web3";
 import voting from "../../voting";
 import VotingCard from "../layout/VotingCard";
 import { Visi1, Visi2, Visi3, Misi1, Misi2, Misi3 } from "../modal/VisiMisi";

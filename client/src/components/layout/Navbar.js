@@ -8,14 +8,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/hasil">Hasil</Link>
+        <Link to="/hasil">Resultados</Link>
       </li>
       <li>
-        <Link to="/instruksi">Instruksi</Link>
+        <Link to="/instruksi">Instrucciones</Link>
       </li>
       <li>
         <a onClick={logout} href="#!">
-          <i className="fas fa-sign-out-alt" /> Logout
+          <i className="fas fa-sign-out-alt" /> Cerrar sesión
         </a>
       </li>
     </ul>
@@ -24,16 +24,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/hasil">Hasil</Link>
+        <Link to="/hasil">Resultados</Link>
       </li>
       <li>
-        <Link to="/instruksi">Instruksi</Link>
+        <Link to="/instruksi">Instrucciones</Link>
       </li>
       <li>
-        <Link to="/register">Registrasi</Link>
+        <Link to="/register">Registro</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login">Iniciar sesión</Link>
       </li>
     </ul>
   );
@@ -41,7 +41,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="navbar bg-dark">
       <h1>
-        <Link to="/">Pemilu RT</Link>
+        <Link to="/">Elecciones UNI</Link>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

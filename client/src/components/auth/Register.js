@@ -29,11 +29,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert("Password tidak sama", "danger");
+      setAlert("Las contraseñas no coinciden", "danger");
     } else {
       register({ NIK, NKK, nama, tanggalLahir, email, password });
       setAlert(
-        "Registrasi sukses, check email anda untuk mengaktivasi akun anda",
+        "Registro exitoso, revise su correo electrónico para activar su cuenta",
         "success"
       );
     }
@@ -45,17 +45,16 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Registrasi</h1>
+      <h1 className="large text-primary">Registrarse</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Pastikan anda sudah terdaftar sebagai
-        pemilih tetap, temui perwakilan RT anda jika anda belum terdaftar
-        sebagai pemilih tetap
+        <i className="fas fa-user" /> Asegúrese de estar registrado como votante permanente, 
+        reúnase con su representante de RT si aún no está registrado como votante permanente
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="NIK"
+            placeholder="DNI"
             name="NIK"
             value={NIK}
             onChange={e => onChange(e)}
