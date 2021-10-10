@@ -19,6 +19,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     password2: ""
   });
 
+  //NIK = DNI citizenship registration number (NIK)
+  //NKK = family card number (nomor kartu keluarga, NKK)
   const { NIK, NKK, nama, tanggalLahir, email, password, password2 } = formData;
 
   const onChange = e =>
@@ -89,7 +91,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name="tanggalLahir"
             value={tanggalLahir}
           />
-          <small className="form-text">Tanggal Lahir</small>
+          <small className="form-text">Fecha de nacimiento</small>
         </div>
         <div className="form-group">
           <input

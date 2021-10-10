@@ -5,7 +5,7 @@
 
  const infura = "HTTP://127.0.0.1:7545";
 
- const pk = "dial civil mammal point slush cup legend memory job tackle firm rifle";
+ const pk = "dice blood oyster coyote resource trust close local clip elephant cute camera";
 
  const provider = new HDWalletProvider(pk, infura);
  const web3 = new Web3(provider);
