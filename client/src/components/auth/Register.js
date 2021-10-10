@@ -42,7 +42,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
-
+  // nkk: family card number (nomor kartu keluarga)
+  // nik: citizenship registration number (Nomor Induk Kependudukan)
+  // ktp: Nomor Kartu Tanda Penduduk (Nomor KTP), because NIK is displayed on the KTP (citizen identity card).
   return (
     <Fragment>
       <h1 className="large text-primary">Registrarse</h1>
@@ -74,7 +76,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Nama di KTP"
+            placeholder="Nombre en la tarjeta de identificación"
             name="nama"
             value={nama}
             onChange={e => onChange(e)}
@@ -89,7 +91,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name="tanggalLahir"
             value={tanggalLahir}
           />
-          <small className="form-text">Tanggal Lahir</small>
+          <small className="form-text">Fecha de nacimiento</small>
         </div>
         <div className="form-group">
           <input
@@ -126,7 +128,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <input type="submit" className="btn btn-primary" value="Registrasi" />
       </form>
       <p className="my-1">
-        Sudah melakukan registrasi? <Link to="/login">Login</Link>
+      ¿Ya registrado? <Link to="/login">Iniciar sesión</Link>
       </p>
     </Fragment>
   );

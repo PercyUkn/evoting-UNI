@@ -14,3 +14,6 @@
 - Go to `config` folder and insert the required fields on `defaultDummy.json` and `productionDummy.json`, then rename those files to `default.json` and `production.json`
 - Go to `client\src` folder, open `web3Dummy.js` and follow the instruction
 - Go to the root of the folder and run `npm run dev` to run it locally
+
+# Configurar Blockchain
+ - Instalar Ganache (Blockchain local) e insertar el RPC server y el mnemonic en web3.js
