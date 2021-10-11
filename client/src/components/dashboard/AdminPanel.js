@@ -4,7 +4,7 @@ import voting from "../../web3/voting";
 
 
 class AdminPanel extends Component {
-  state = { // Este es el objeto state, referenciado durante toda este componente
+  state = { // Este es el objeto state, referenciado durante toda este componentes
     adminAddress: "0xbD5f9982c0679BBc30DC27CFc6F44695c8D28e06",//0x7553bfa72d8942141467e113b165b651dcb01fe0 (el que ya venía)
     account: [],
     value: "",

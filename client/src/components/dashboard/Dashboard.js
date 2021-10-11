@@ -38,22 +38,22 @@ class Dashboard extends Component {
 
   onSubmit = async event => {
     event.preventDefault();
-    this.setState({ message: "Sedang di proses, harap menunggu" });
-    const account = "0x7553Bfa72d8942141467E113B165B651Dcb01fE0";
+    this.setState({ message: "En progreso, espere" });
+    const account = "0xbD5f9982c0679BBc30DC27CFc6F44695c8D28e06" //"0x7553Bfa72d8942141467E113B165B651Dcb01fE0"; (Coincide con el del AdminPanel.js, no con el de voting.js)
     await voting.methods.vote(this.state.value).send({
       from: account,
       gasLimit: "1000000"
     });
-    this.setState({ message: "Anda telah memilih " + this.state.value });
+    this.setState({ message: "Has elegido " + this.state.value });
   };
 
   render() {
     return (
       <div className="formVoting">
-        <h2>Pemilihan Ketua RT XYZ</h2>
+        <h2>Elección del rector de la UNI</h2>
         <hr />
         <VotingCard
-          name={this.state.candidates[0]}
+          name={this.state.candidates[0]} // El nombre es el ID? Creo que si
           image="https://bengkuluekspress.com/wp-content/uploads/2013/04/Ketua-RT-5-RW-1-Kebun-Dahri.jpg"
           backgroundColor={
             this.state.value === this.state.candidates[0] ? "#f00" : "#ccc"
@@ -106,11 +106,11 @@ class Dashboard extends Component {
 
         <div>
           <button className="confirm-vote" onClick={this.confirmingVote}>
-            Confirm Vote {this.state.value}
+            Confirmar Voto {this.state.value}
           </button>
         </div>
         <button className="confirm-vote" onClick={this.onSubmit}>
-          Submit
+          Enviar
         </button>
         <h3>{this.state.message}</h3>
       </div>

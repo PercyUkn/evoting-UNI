@@ -19,7 +19,7 @@ const Activate = ({ activate, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault();
     activate(NIK, password);
-    setAlert("Aktivasi sukses, silahkan login", "success");
+    setAlert("Activación exitosa, inicie sesión", "success");
   };
 
   if (isAuthenticated) {
@@ -28,15 +28,15 @@ const Activate = ({ activate, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Aktivasi</h1>
+      <h1 className="large text-primary">Activación</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Aktivasi akun anda
+        <i className="fas fa-user" /> Activa tu cuenta
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="NIK"
+            placeholder="Código UNI"
             name="NIK"
             value={NIK}
             onChange={e => onChange(e)}
@@ -56,10 +56,10 @@ const Activate = ({ activate, isAuthenticated }) => {
           />
         </div>
 
-        <input type="submit" className="btn btn-primary" value="Aktivasi" />
+        <input type="submit" className="btn btn-primary" value="Activar" />
       </form>
       <p className="my-1">
-        Belum melakukan registrasi? <Link to="/register">Registrasi</Link>
+      ¿Aún no te has registrado? <Link to="/register">Registro</Link>
       </p>
     </Fragment>
   );
