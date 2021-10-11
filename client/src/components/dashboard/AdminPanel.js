@@ -18,10 +18,11 @@ class AdminPanel extends Component {
   async componentDidMount() {
     if (window.ethereum) {
       const ethereum = window.ethereum;
-      const account = await ethereum.enable();
+      //const account = await ethereum.enable(); // Cambiando porque parece deprecated selectedAddress()
+      const account = await window.web3.accounts
       this.setState({ account });
     } else if (window.web3) {
-      const account = await web3.eth.getAccounts();
+      const account = await window.web3.accounts//web3.eth.getAccounts();
       this.setState({ account });
     }
   }
@@ -108,12 +109,13 @@ class AdminPanel extends Component {
   };
 
   render() {
-    if (this.state.account[0] === this.state.adminAddress) { // Visualiza la pantalla si la dirección del adminAddress es la del address de Ethereum
+    if (true) { // Visualiza la pantalla si la dirección del adminAddress es la del address de Ethereum this.state.account[0] === this.state.adminAddress
       return (
         <div className="formVoting">
           <div className="candidateCard">
             <form onSubmit={this.regisCandidate}>
               <h3>Registro de candidatos</h3>
+              <p>{window.web3.eth.accounts[0]}</p>
               <input
                 type="text"
                 placeholder="Nombre del candidato"

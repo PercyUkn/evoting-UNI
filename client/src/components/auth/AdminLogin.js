@@ -31,7 +31,7 @@ const AdminLogin = ({ login, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="NIK"
+            placeholder="Código UNI"
             name="NIK"
             value={NIK}
             onChange={e => onChange(e)}
