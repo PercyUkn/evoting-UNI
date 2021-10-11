@@ -26,15 +26,15 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Login</h1>
+      <h1 className="large text-primary">Iniciar sesión</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Login Voting RT XYZ
+        <i className="fas fa-user" /> Inicie sesión en Elecciones Generales UNI 2021 para continuar
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="NIK"
+            placeholder="Código UNI"
             name="NIK"
             value={NIK}
             onChange={e => onChange(e)}
@@ -54,10 +54,10 @@ const Login = ({ login, isAuthenticated }) => {
           />
         </div>
 
-        <input type="submit" className="btn btn-primary" value="Login" />
+        <input type="submit" className="btn btn-primary" value="Iniciar sesión" />
       </form>
       <p className="my-1">
-        Belum melakukan registrasi? <Link to="/register">Registrasi</Link>
+      ¿Aún no te has registrado? <Link to="/register">Registrase</Link>
       </p>
     </Fragment>
   );

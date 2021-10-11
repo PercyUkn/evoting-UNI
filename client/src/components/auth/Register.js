@@ -8,7 +8,7 @@ import { register } from "../../actions/auth";
 
 import PropTypes from "prop-types";
 
-const Register = ({ setAlert, register, isAuthenticated }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => { // Qué función llama a esta función?
   const [formData, setFormData] = useState({
     NIK: "",
     NKK: "",
@@ -33,7 +33,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     if (password !== password2) {
       setAlert("Las contraseñas no coinciden", "danger");
     } else {
-      register({ NIK, NKK, nama, tanggalLahir, email, password });
+      register({ NIK, NKK, nama, tanggalLahir, email, password }); 
       setAlert(
         "Registro exitoso, revise su correo electrónico para activar su cuenta",
         "success"
@@ -49,8 +49,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     <Fragment>
       <h1 className="large text-primary">Registrarse</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Asegúrese de estar registrado como votante permanente, 
-        reúnase con su representante de RT si aún no está registrado como votante permanente
+        <i className="fas fa-user" /> Asegúrese de estar registrado como votante, caso contrario,
+        reúnase con su representante del Centro de Estudiantes para registrarse como votante.
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
@@ -66,7 +66,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="No. KK"
+            placeholder="Código UNI"
             name="NKK"
             value={NKK}
             onChange={e => onChange(e)}
@@ -76,7 +76,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Nama di KTP"
+            placeholder="Apellidos y Nombres"
             name="nama"
             value={nama}
             onChange={e => onChange(e)}
@@ -117,7 +117,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="password"
-            placeholder="Confirm Password"
+            placeholder="Confirmar password"
             name="password2"
             minLength="6"
             value={password2}
@@ -125,10 +125,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             required
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Registrasi" />
+        <input type="submit" className="btn btn-primary" value="Registrase" />
       </form>
       <p className="my-1">
-        Sudah melakukan registrasi? <Link to="/login">Login</Link>
+      ¿Ya registrado? <Link to="/login">Iniciar sesión</Link>
       </p>
     </Fragment>
   );

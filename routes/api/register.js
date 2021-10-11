@@ -12,17 +12,17 @@ const DataAktif = require("../../models/DataAktif");
 router.post(
   "/",
   [
-    check("NIK", "Masukan NIK anda")
+    check("NIK", "Ingrese su DNI")
       .not()
       .isEmpty(),
-    check("NKK", "Masukan No. KK anda")
+    check("NKK", "Ingrese su código UNI") // KK en Malayo (Indonesia)
       .not()
       .isEmpty(),
-    check("nama", "Masukan nama anda sesuai pada KTP")
+    check("nama", "Apellidos y Nombres")
       .not()
       .isEmpty(),
-    check("email", "Masukan email anda").isEmail(),
-    check("password", "Masukan password dengan 6 karakter atau lebih").isLength(
+    check("email", "Ingrese su correo electrónico").isEmail(),
+    check("password", "Ingrese una contraseña de 6 caracteres o más").isLength(
       { min: 6 }
     )
   ],
@@ -35,64 +35,64 @@ router.post(
     const { NIK, NKK, nama, tanggalLahir, email, password } = req.body;
 
     try {
-      let user = await DataPemilih.findOne({ NIK: NIK, NKK: NKK, nama: nama });
-      let userTerdaftar = await DataAktif.findOne({ NIK });
-      if (!user) {
+      let user = await DataPemilih.findOne({ NIK: NIK, NKK: NKK, nama: nama }); // DataPemilih: Datos de los votantes (permitidos), busca
+      let userTerdaftar = await DataAktif.findOne({ NIK }); // Busca el usuario registrado por DNI dento de Datos activos
+      if (!user) { // Si el usuario no está registrado como permitido
         return res.status(400).json({
           errors: [
             {
               msg:
-                "Data anda belum terdaftar sebagai pemilih tetap, pastikan NIK, No. KK, dan nama anda sudah dimasukan dengan benar"
+                "Sus datos no se han registrado como votante permanente, asegúrese de que NIK, No. KK, y su nombre se ha introducido correctamente"
             }
           ]
         });
       }
 
-      if (userTerdaftar && user) {
+      if (userTerdaftar && user) { // Si el usuario está registrado como permitido y ya se registró en la aplicación
         return res.status(400).json({
           errors: [
             {
-              msg: "Anda sudah terdaftar, silahkan lakukan login"
+              msg: "Ya estás registrado, inicia sesión"
             }
           ]
         });
       }
 
-      user = new DataAktif({
+      user = new DataAktif({ // Crea un objeto DataAktif para registrarlo en el sistema (Solo es necesario el NIK, email y password?)
         NIK,
         email,
         password
       });
 
-      const salt = await bcrypt.genSalt(10);
+      const salt = await bcrypt.genSalt(10); // Genera la salt para añadirle al password
 
-      user.password = await bcrypt.hash(password, salt);
+      user.password = await bcrypt.hash(password, salt); // Agrega la sal al password
 
-      await user.save();
+      await user.save(); // Manda a guardar el usuario creado
 
-      const transporter = nodemailer.createTransport({
+      const transporter = nodemailer.createTransport({ // Esto es para enviar el email
         service: "Gmail",
         tls: { rejectUnauthorized: false },
         auth: {
-          user: config.adminEmail,
-          pass: config.emailPass
+          user: "seguridad.informatica.uni.21.2@gmail.com",//config.adminEmail, revisar https://github.com/lorenwest/node-config (Config files)
+          pass: "SecInfUni212" //config.emailPass, revisar https://github.com/lorenwest/node-config (Config files
         }
       });
 
       const info = await transporter.sendMail({
-        from: '"Pemilu RT XYZ" <pemilu.rt11@gmail.com>',
+        from: '"Comité Electoral UNI" <seguridad.informatica.uni.21.2@gmail.com>',
         to: user.email,
-        subject: "Konfirmasi Akun Pemilihian RT",
+        subject: "Confirmación de la cuenta de votación en las Elecciones Generales Virtuales UNI 2021", 
         text:
-          "Click https://pemilurt.herokuapp.com/activate untuk mengaktivasi akun anda",
+          "Haga clic en http://localhost:3000/activate para activar su cuenta", // Mover a localhost:3000/activate -- endpoint de ellos: https://pemilurt.herokuapp.com/activate
         html:
-          '<p>Click <a href="https://pemilurt.herokuapp.com/activate">disini</a> untuk mengaktivasi akun anda</p>'
+          '<p> Haga clic <a href="http://localhost:3000/activate"> aquí </a> para activar su cuenta </p>'
       });
 
       res.json({ msg: `Message sent, Message ID: ${info.messageId}` });
     } catch (err) {
       console.error(err);
-      res.status(500).send("Server Error");
+      res.status(500).send("Error del servidor");
     }
   }
 );

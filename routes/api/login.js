@@ -21,8 +21,8 @@ router.get("/", auth, async (req, res) => {
 router.post(
   "/",
   [
-    check("NIK", "Masukan NIK anda").exists(),
-    check("password", "Masukan password anda").exists()
+    check("NIK", "Ingrese su código UNI").exists(), // OJO: NIK está atado al name del input, primero cambiar ahí, luego cambiar aquí, sino da error.
+    check("password", "Ingrese su contraseña").exists()
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -37,27 +37,27 @@ router.post(
       if (!user) {
         return res
           .status(400)
-          .json({ errors: [{ msg: "NIK atau password anda salah" }] });
+          .json({ errors: [{ msg: "Su código UNI o contraseña es incorrecta" }] }); // NIK = Código UNI 
       }
 
-      if (user.confirmed == false) {
+      if (user.confirmed == false) { // Verifica el campo confirmed, se actualiza con el endpoint /activate
         return res
           .status(400)
-          .json({ errors: [{ msg: "Akun belum di aktivasi" }] });
+          .json({ errors: [{ msg: "La cuenta no ha sido activada" }] });
       }
 
-      if (user.hasVote == true) {
+      if (user.hasVote == true) { // Verifica si el usuario ya votó
         return res
           .status(400)
-          .json({ errors: [{ msg: "Anda sudah memilih" }] });
+          .json({ errors: [{ msg: "Usted ya ha votado" }] });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
 
-      if (!isMatch) {
+      if (!isMatch) { // Contraseña incorrecta
         return res
           .status(400)
-          .json({ errors: [{ msg: "NIK atau password anda salah" }] });
+          .json({ errors: [{ msg: "Su código UNI o contraseña es incorrecta" }] });
       }
 
       const payload = {
