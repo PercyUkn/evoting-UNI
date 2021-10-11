@@ -1,6 +1,8 @@
 import web3 from "./web3/web3";
 
-const address = "0xbD5f9982c0679BBc30DC27CFc6F44695c8D28e06"//"0x306Fc048C58f5c5837D15607dc3FbF682f738012"; address del admin o de otra cuenta de Ethereum?
+const address = "0x614815dd8f3823F64cb76B88a7721705e6c89dD9" // Address del Smart Contract conectado en Remix 11-10-21 05:00 am
+//"0x306Fc048C58f5c5837D15607dc3FbF682f738012"; address del admin o de otra cuenta de Ethereum?
+// Es el address del smart contract
 
 const abi = [
   {

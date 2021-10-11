@@ -29,16 +29,17 @@ export default class Hasil extends Component {
 
   render() {
     if (this.state.electionStarted === "loading") {
+      console.log(this.state.electionStarted)
       return null;
     } else if (this.state.electionStarted === false) {
       return (
         <div>
-          <h2>Hasil Pemilihan Ketua RT XYZ</h2>
+          <h2>Resultados de la elección de rector de la UNI</h2>
           <table className="voteResult">
             <tbody>
               <tr>
-                <th>Nama Kandidat</th>
-                <th>Perolehan Suara</th>
+                <th>Nombre del candidato</th>
+                <th>Cantidad de votos</th>
               </tr>
               <tr>
                 <td>{this.state.candidates[0]}</td>
@@ -60,8 +61,8 @@ export default class Hasil extends Component {
       return (
         <div>
           <h2>
-            Hasil Pemilihan Ketua RT XYZ akan diumumkan setelah berakhirnya
-            waktu pemilihan
+            Los resultados de la elección a rector de la UNI se anunciarán una vez finalizado
+            tiempo de elecciones
           </h2>
         </div>
       );

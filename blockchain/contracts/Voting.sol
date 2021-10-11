@@ -57,6 +57,7 @@ contract Voting{
     function vote(string memory candidateName) public
         only_election_authority onlyWhenElection
     {
+        // Se vota con el nombre, pero se obtiene al candidato con el indice
         votes[candidateName] += 1;
     }
 

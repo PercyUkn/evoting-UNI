@@ -1,7 +1,10 @@
 import web3 from "./web3";
 
 
-const address = "0x4Eb6323AA3923f335EFbD40B8DF5D5a5ed8A7cF6"
+//const address = "0x4Eb6323AA3923f335EFbD40B8DF5D5a5ed8A7cF6" (La del 10/10/21)
+
+const address = "0x614815dd8f3823F64cb76B88a7721705e6c89dD9" // Vinculada con Remix IDE
+
 //"0x306Fc048C58f5c5837D15607dc3FbF682f738012"; Va el address del admin o de otra cuenta de Ethereum? (No coincide con el address original )
 // Iba el address del Smart Contract
 
