@@ -33,7 +33,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // Qué función
     if (password !== password2) {
       setAlert("Las contraseñas no coinciden", "danger");
     } else {
-      register({ NIK, NKK, nama, tanggalLahir, email, password }); 
+      register({ NIK, NKK, nama, tanggalLahir, email, password }); // A dónde envía esta función?
       setAlert(
         "Registro exitoso, revise su correo electrónico para activar su cuenta",
         "success"
@@ -56,7 +56,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // Qué función
         <div className="form-group">
           <input
             type="text"
-            placeholder="DNI"
+            placeholder="Código UNI"
             name="NIK"
             value={NIK}
             onChange={e => onChange(e)}

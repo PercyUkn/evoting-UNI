@@ -71,4 +71,6 @@ contract Voting{
         _candidate = candidates[i];
         _votes = votes[_candidate];
     }
+
+    //Faltaría agregar para eliminar un candidate o borrar todos cuándo hay un reset (O si lo hace?)
 }

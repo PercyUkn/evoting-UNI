@@ -1,6 +1,7 @@
 import web3 from "./web3";
 
-const address = "0x306Fc048C58f5c5837D15607dc3FbF682f738012";
+
+const address = "0xbD5f9982c0679BBc30DC27CFc6F44695c8D28e06"//"0x306Fc048C58f5c5837D15607dc3FbF682f738012"; address del admin o de otra cuenta de Ethereum?
 
 const abi = [
   {

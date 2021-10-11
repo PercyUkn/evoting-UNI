@@ -12,7 +12,7 @@ const DataAktif = require("../../models/DataAktif");
 router.post(
   "/",
   [
-    check("NIK", "Ingrese su DNI")
+    check("NIK", "Ingrese su código UNI")
       .not()
       .isEmpty(),
     check("NKK", "Ingrese su código UNI") // KK en Malayo (Indonesia)
@@ -74,8 +74,8 @@ router.post(
         service: "Gmail",
         tls: { rejectUnauthorized: false },
         auth: {
-          user: "seguridad.informatica.uni.21.2@gmail.com",//config.adminEmail, revisar https://github.com/lorenwest/node-config (Config files)
-          pass: "SecInfUni212" //config.emailPass, revisar https://github.com/lorenwest/node-config (Config files
+          user: config.adminEmail, // revisar https://github.com/lorenwest/node-config (Config files) Está en default.json
+          pass: config.emailPass // revisar https://github.com/lorenwest/node-config (Config files
         }
       });
 

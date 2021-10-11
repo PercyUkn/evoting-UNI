@@ -52,7 +52,7 @@ describe("Voting Blockchain", () => {
       from: accounts[0]
     });
 
-    await voting.methods.startElection().send({
+    await voting.methods.startElection().send({ // Con esto comienzan las elecciones
       from: accounts[0]
     });
 
@@ -77,7 +77,7 @@ describe("Voting Blockchain", () => {
       from: accounts[0]
     });
     try {
-      await voting.methods.vote("Zaenal").send({
+      await voting.methods.vote("Zaenal").send({ // Trata de votar con otra cuenta diferente de la que se creo el smart contract
         from: accounts[1]
       });
       assert(false);
@@ -96,7 +96,7 @@ describe("Voting Blockchain", () => {
     await voting.methods.register_candidate("Subadri").send({
       from: accounts[0]
     });
-    await voting.methods.stopElection().send({
+    await voting.methods.stopElection().send({ // Con esto para la elección
       from: accounts[0]
     });
     try {
@@ -137,7 +137,7 @@ describe("Voting Blockchain", () => {
       from: accounts[0]
     });
 
-    await voting.methods.reset().send({
+    await voting.methods.reset().send({ // Con esto resetea la elección
       from: accounts[0]
     });
     await voting.methods.register_candidate("Zaenal").send({
