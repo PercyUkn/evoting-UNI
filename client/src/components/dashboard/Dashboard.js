@@ -11,7 +11,8 @@ class Dashboard extends Component {
     candidates: [],
     value: "",
     message: "",
-    confirmVote: false
+    confirmVote: false,
+    voted: false
   };
 
   voteValue = name => {
@@ -45,6 +46,10 @@ class Dashboard extends Component {
       gasLimit: "1000000"
     });
     this.setState({ message: "Has elegido " + this.state.value });
+    this.setState({voted: true});
+    setTimeout(function() {
+      window.location.replace('http://localhost:3000/hasil');
+    }, 5000);
   };
 
   render() {
@@ -53,8 +58,8 @@ class Dashboard extends Component {
         <h2>Elección del rector de la UNI</h2>
         <hr />
         <VotingCard
-          name={this.state.candidates[0]} // El nombre es el ID? Creo que si
-          image="https://bengkuluekspress.com/wp-content/uploads/2013/04/Ketua-RT-5-RW-1-Kebun-Dahri.jpg"
+          name={this.state.candidates[0]} // Tra el nombre del candidato 0
+          image="https://1.bp.blogspot.com/_BSRFkkxuSEI/Sj5_G8xpCSI/AAAAAAAAEO8/2oxcKT4w8pE/s1600-h/lopez1.jpg"
           backgroundColor={
             this.state.value === this.state.candidates[0] ? "#f00" : "#ccc"
           }
@@ -71,7 +76,7 @@ class Dashboard extends Component {
         />
         <VotingCard
           name={this.state.candidates[1]}
-          image="https://krjogja.com/kr-admin//files/news/image_2/89225/Cholil.jpeg"
+          image="https://www.ulima.edu.pe/sites/default/files/styles/230x230/public/pictures/picture-752-1381189478.jpg" // Goytendia, debería ir Vergara Sotomayor
           backgroundColor={
             this.state.value === this.state.candidates[1] ? "#f00" : "#ccc"
           }
@@ -88,7 +93,7 @@ class Dashboard extends Component {
         />
         <VotingCard
           name={this.state.candidates[2]}
-          image="https://riaukarya.com/assets/berita/original/98821061709-photogrid_1560880483183.jpg"
+          image="http://1.bp.blogspot.com/_amwwCeRbLy8/Skx_Kn70krI/AAAAAAAAAqk/xGsOJK7bLGg/s1600-h/25331980.jpg"
           backgroundColor={
             this.state.value === this.state.candidates[2] ? "#f00" : "#ccc"
           }
@@ -109,7 +114,7 @@ class Dashboard extends Component {
             Confirmar Voto {this.state.value}
           </button>
         </div>
-        <button className="confirm-vote" onClick={this.onSubmit}>
+        <button className="confirm-vote" onClick={this.onSubmit} disabled={this.state.voted}>
           Enviar
         </button>
         <h3>{this.state.message}</h3>

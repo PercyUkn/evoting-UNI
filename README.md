@@ -13,4 +13,6 @@
 - Run `node compile.js` on the `blockchain` folder to compile your smart contract, then run `node deploy.js` to deploy your smart contract
 - Go to `config` folder and insert the required fields on `defaultDummy.json` and `productionDummy.json`, then rename those files to `default.json` and `production.json`
 - Go to `client\src` folder, open `web3Dummy.js` and follow the instruction
+- Go to `web3\voting.js` (used by Dashboard) and paste the address of the smart contract deployed
+- Go to `voting.js` (used by AdminPanel) and paste the address of the smart contract deployed
 - Go to the root of the folder and run `npm run dev` to run it locally
