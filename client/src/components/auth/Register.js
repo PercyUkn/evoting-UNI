@@ -49,10 +49,22 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // Qué función
     <Fragment>
       <h1 className="large text-primary">Registrarse</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Asegúrese de estar registrado como votante, caso contrario,
+        <i className="fas fa-user" /> 
+        Asegúrese de estar registrado como votante, caso contrario,
         reúnase con su representante del Centro de Estudiantes para registrarse como votante.
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
+      <div className="form-group">
+          <input
+            type="text"
+            id="codigoNKK"
+            placeholder="DNI"
+            name="NKK"
+            value={NKK}
+            onChange={e => onChange(e)}
+            required
+          />
+        </div>
         <div className="form-group">
           <input
            
@@ -60,22 +72,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // Qué función
             placeholder="Código UNI"
             name="NIK"
             value={NIK}
-            onChange={e => {
-              document.getElementById("codigoNKK").value = e.target.value;
-              onChange(e)
-            }}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            id="codigoNKK"
-            placeholder="Código UNI"
-            name="NKK"
-            value={NKK}
             onChange={e => onChange(e)}
-           
             required
           />
         </div>

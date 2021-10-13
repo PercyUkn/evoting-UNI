@@ -97,7 +97,11 @@ class AdminPanel extends Component {
       await voting.methods.reset().send({
         from: account[0]
       });
+
+      fetch('http://localhost:3000/api/vote/reset').then(response => console.log(response))
+
       this.setState({ resetMsg: "Restablecimiento exitoso" });
+
     } else if (window.web3) {
       const account = await web3.eth.getAccounts();
       this.setState({ resetMsg: "Siendo procesado" });

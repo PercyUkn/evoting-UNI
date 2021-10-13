@@ -30,8 +30,7 @@ export default class Instruksi extends Component {
           </li>
           <li>
             <h4 className="instruction">
-              Lakukan registrasi dengan memasukan NIK, No. KK, nama, tanggal
-              lahir, email, dan password.
+                Regístrese ingresando su DNI, código UNI, apellidos y nombres, fecha de nacimiento, correo electrónico y contraseña.
             </h4>
             <img
               src={RegisterImg}
@@ -41,8 +40,7 @@ export default class Instruksi extends Component {
           </li>
           <li>
             <h4 className="instruction">
-              Lakukan aktivasi akun dengan mengkonfirmasi email yang digunakan
-              saat registrasi.
+            Active su cuenta confirmando el email enviado al correo electrónico usado en el registro.
             </h4>
             <img
               src={AktivasiImg}
@@ -52,8 +50,7 @@ export default class Instruksi extends Component {
           </li>
           <li>
             <h4 className="instruction">
-              Lakukan login dengan memasukan NIK dan password yang digunakan
-              pada saat registrasi.
+            Inicie sesión ingresando el código UNI y la contraseña utilizadas durante el registro.
             </h4>
             <img
               src={LoginImg}
@@ -63,8 +60,7 @@ export default class Instruksi extends Component {
           </li>
           <li>
             <h4 className="instruction">
-              Pilihlah kandidat pilihan anda, anda juga dapat melihat visi &
-              misi kandidat yang ada sebelum memilih.
+              Elija el candidato de su elección, también puede ver el plan de trabajo del candidato existente antes de elegir.
             </h4>
             <img
               src={DashboardImg}
@@ -74,7 +70,7 @@ export default class Instruksi extends Component {
           </li>
           <li>
             <h4 className="instruction">
-              Konfirmasi pilihan anda dengan menekan Confirm Vote
+              Confirme su elección presionando: "Confirmar voto"
             </h4>
             <img
               src={DashboardHighlightImg}
@@ -84,7 +80,7 @@ export default class Instruksi extends Component {
           </li>
           <li>
             <h4 className="instruction">
-              Submit pilihan anda dan tunggu sampai sistem selesai memproses
+              Envíe su elección y espere hasta que el sistema termine de procesarlo
             </h4>
             <img
               src={DashboardVoteWaitingImg}
@@ -94,18 +90,7 @@ export default class Instruksi extends Component {
           </li>
           <li>
             <h4 className="instruction">
-              Sistem telah selesai memproses dan anda dapat melihat pilihan anda
-              telah terpilih
-            </h4>
-            <img
-              src={DashboardVoteDoneImg}
-              class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-              alt=""
-            />
-          </li>
-          <li>
-            <h4 className="instruction">
-              Anda dapat melihat hasil pemilihan setelah pemilihan selesai
+              Puede ver los resultados de las elecciones una vez finalizadas las elecciones.
             </h4>
           </li>
         </ol>

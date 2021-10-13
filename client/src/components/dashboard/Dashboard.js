@@ -5,6 +5,7 @@ import voting from "../../voting";
 import VotingCard from "../layout/VotingCard";
 import { Visi1, Visi2, Visi3, Misi1, Misi2, Misi3 } from "../modal/VisiMisi";
 import PropTypes from "prop-types";
+import { logout } from "../../actions/auth";
 
 // Un poco de acoplamiento y malas prácticas!!!
 //const DataAktif = require("../../../../models/DataAktif");
@@ -50,11 +51,27 @@ class Dashboard extends Component {
       from: account,
       gasLimit: "1000000"
     });
+    
+    
+    
+    // Aquí debería poner hasVote a true en la entidad del usuario logueado
     this.setState({ message: "Has elegido " + this.state.value });
     this.setState({voted: true});
+
+    // Enviando un post para registrar al ususario como que ha votado
+    const request = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+     // body: JSON.stringify({NIK: localStorage.getItem('codigoo_UNI')})
+      body: JSON.stringify({NIK: localStorage.getItem('codigo_UNI')})
+    }
+    console.log("Cliente");
+    console.log(request);
+    fetch('http://localhost:3000/api/vote',request).then(response => console.log(response));
+
     setTimeout(function() {
       window.location.replace('http://localhost:3000/hasil');
-    }, 5000);
+    }, 7000);
   };
 
   render() {

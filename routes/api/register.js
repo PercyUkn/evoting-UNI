@@ -15,7 +15,7 @@ router.post(
     check("NIK", "Ingrese su código UNI")
       .not()
       .isEmpty(),
-    check("NKK", "Ingrese su código UNI") // KK en Malayo (Indonesia)
+    check("NKK", "Ingrese su código UNI") // NKK en Malayo (Indonesia)
       .not()
       .isEmpty(),
     check("nama", "Apellidos y Nombres")

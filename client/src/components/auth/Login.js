@@ -18,6 +18,8 @@ const Login = ({ login, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault();
     login(NIK, password);
+    localStorage.setItem('codigo_UNI',NIK);
+    console.log(NIK)
   };
 
   if (isAuthenticated) {

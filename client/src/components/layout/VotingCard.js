@@ -37,7 +37,7 @@ class VotingCard extends Component {
             onClick={this.props.onclick}
             disabled={this.props.isDisabled}
           >
-            Vote {this.props.name}
+            Votar {this.props.name}
           </button>
         </div>
       </div>

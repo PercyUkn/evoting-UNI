@@ -60,6 +60,8 @@ router.post(
           .json({ errors: [{ msg: "Su código UNI o contraseña es incorrecta" }] });
       }
 
+      
+
       const payload = {
         user: {
           id: user.id
