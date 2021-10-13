@@ -55,21 +55,27 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // Qué función
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
+           
             type="text"
             placeholder="Código UNI"
             name="NIK"
             value={NIK}
-            onChange={e => onChange(e)}
+            onChange={e => {
+              document.getElementById("codigoNKK").value = e.target.value;
+              onChange(e)
+            }}
             required
           />
         </div>
         <div className="form-group">
           <input
             type="text"
+            id="codigoNKK"
             placeholder="Código UNI"
             name="NKK"
             value={NKK}
             onChange={e => onChange(e)}
+           
             required
           />
         </div>

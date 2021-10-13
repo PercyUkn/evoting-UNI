@@ -97,6 +97,7 @@ export const login = (NIK, password) => async dispatch => {
     });
 
     dispatch(loadUser());
+    localStorage.setItem('user', JSON.stringify(body)) // Agregado: Guardadndo al usuario en la Session para obtener su Código UNI en el Dashboard
   } catch (err) {
     const errors = err.response.data.errors;
 

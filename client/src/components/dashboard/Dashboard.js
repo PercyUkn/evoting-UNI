@@ -6,6 +6,11 @@ import VotingCard from "../layout/VotingCard";
 import { Visi1, Visi2, Visi3, Misi1, Misi2, Misi3 } from "../modal/VisiMisi";
 import PropTypes from "prop-types";
 
+// Un poco de acoplamiento y malas prácticas!!!
+//const DataAktif = require("../../../../models/DataAktif");
+//let userDetails = JSON.parse(localStorage.getItem('user'));
+//await DataAktif.findOneAndUpdate({ NIK }, { hasVote: true });
+
 class Dashboard extends Component {
   state = {
     candidates: [],
