@@ -19,7 +19,13 @@ const Activate = ({ activate, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault();
     activate(NIK, password);
-    setAlert("Activación exitosa, inicie sesión", "success");
+    setAlert(
+      "Registro exitoso, revise su correo electrónico para activar su cuenta",
+      "success"
+    );
+    setTimeout(function() {
+      window.location.replace('http://localhost:3000/login');
+    }, 4000);
   };
 
   if (isAuthenticated) {

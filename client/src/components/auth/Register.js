@@ -83,7 +83,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // Qué función
             name="nama"
             value={nama}
             onChange={e => onChange(e)}
-            required
+            type="hidden"
           />
         </div>
         <div className="form-group">

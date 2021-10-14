@@ -18,9 +18,9 @@ router.post(
     check("NKK", "Ingrese su código UNI") // NKK en Malayo (Indonesia)
       .not()
       .isEmpty(),
-    check("nama", "Apellidos y Nombres")
-      .not()
-      .isEmpty(),
+   // check("nama", "Apellidos y Nombres")
+   //   .not()
+   //   .isEmpty(),
     check("email", "Ingrese su correo electrónico").isEmail(),
     check("password", "Ingrese una contraseña de 6 caracteres o más").isLength(
       { min: 6 }
@@ -35,7 +35,7 @@ router.post(
     const { NIK, NKK, nama, tanggalLahir, email, password } = req.body;
 
     try {
-      let user = await DataPemilih.findOne({ NIK: NIK, nama: nama }); // DataPemilih: Datos de los votantes (permitidos), busca solo por Código UNI
+      let user = await DataPemilih.findOne({ NIK: NIK, NKK:NKK}); // DataPemilih: Datos de los votantes (permitidos), busca solo por Código UNI
       let userTerdaftar = await DataAktif.findOne({ NIK }); // Busca el usuario registrado por DNI dento de Datos activos
       if (!user) { // Si el usuario no está registrado como permitido
         return res.status(400).json({
