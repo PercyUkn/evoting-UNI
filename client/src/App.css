@@ -21,6 +21,19 @@ body {
   color: #333;
 }
 
+table.voteResult {
+  margin-top: '80px';
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+table.voteResult th {
+  background-color: #B40637;
+  color: white !important;
+}
+
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -70,8 +83,16 @@ td {
   padding: 50px;
   margin: 20px;
   border-radius: 5%;
-  background-color: #ccc;
+  background-color: #B40637;
+  color: white;
   opacity: 0.9;
+}
+
+.candidateCard input {
+  padding: 5px;
+  margin: 10px 0px;
+  margin-top: 10px;
+  display: block;
 }
 
 .candidate {
@@ -86,12 +107,15 @@ td {
 .formVoting {
   text-align: center;
   border: 1px solid black;
+  margin-top: 20px;
 }
 
 .vote-btn {
-  padding: 5px;
+  padding: 10px;
   margin: 2px;
-  background-color: var(--light-color);
+  /*background-color: var(--light-color);*/
+  background-color: #B40637;
+  color: white;
 }
 
 .confirm-vote {
@@ -293,7 +317,7 @@ td {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  /*background-color: rgba(0, 0, 0, 0.7);*/
   position: absolute;
   top: 0;
   left: 0;
@@ -384,7 +408,7 @@ button {
 }
 
 .navbar a {
-  color: #fff;
+  color: #000;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
@@ -400,14 +424,15 @@ button {
 /* Landing Page */
 .landing {
   position: relative;
-  background: url("./img/showcase.jpg") no-repeat center center/cover;
+  /*background: url("./img/showcase.jpg") no-repeat center center/cover;*/
+  background-color: #B40637;
   height: 100vh;
 }
 
 .landing-inner {
   color: #fff;
   height: 100%;
-  width: 80%;
+  /*width: 80%;*/
   margin: auto;
   display: flex;
   flex-direction: column;

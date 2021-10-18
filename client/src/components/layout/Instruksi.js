@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MenuImg from "../../img/Menu2.PNG";
 import RegisterImg from "../../img/Registrasi2.PNG";
-import AktivasiImg from "../../img/Aktivasi2.png";
+import AktivasiImg from "../../img/Aktivasi.jpeg";
 import LoginImg from "../../img/Login2.PNG";
 import DashboardImg from "../../img/Dashboard2.PNG";
 import DashboardHighlightImg from "../../img/Dashboard-highlighted2.PNG";

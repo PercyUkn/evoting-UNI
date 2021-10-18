@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
+import logo_uni from "../../img/uni/logo-uni.png";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
@@ -39,10 +40,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   return (
-    <nav className="navbar bg-dark">
-      <h1>
-        <Link to="/">Elecciones UNI</Link>
-      </h1>
+    <nav className="navbar" style={{background: '#E6E6E6'}}>
+        <img
+        style={{height: '80px', width: 'auto'}}
+        src={logo_uni}
+        />
+        <h1>
+          <Link to="/">Elecciones UNI</Link>
+        </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
       )}

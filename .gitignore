@@ -8,3 +8,4 @@ config/default.json
 client/src/web3/web3.js
 client/src/web3.js
 .env
+.DS_Store
