@@ -1,8 +1,11 @@
 import web3 from "./web3/web3";
 
-const address = "0x614815dd8f3823F64cb76B88a7721705e6c89dD9" // Address del Smart Contract conectado en Remix 11-10-21 05:00 am
+//const address = "0x614815dd8f3823F64cb76B88a7721705e6c89dD9" // Address del Smart Contract conectado en Remix 11-10-21 05:00 am
 //"0x306Fc048C58f5c5837D15607dc3FbF682f738012"; address del admin o de otra cuenta de Ethereum?
 // Es el address del smart contract
+//const address = "0x614815dd8f3823F64cb76B88a7721705e6c89dD9" // Dirección del contato Vinculada con Remix IDE y Ganache
+const address = "0x91E33e7E7a0125c7F713F930Be2112a34b6a44A6" // Dirección del contrato desplegado en el testnet Gorli
+
 
 const abi = [
   {
@@ -106,4 +109,4 @@ const abi = [
   }
 ];
 
-export default new web3.eth.Contract(abi, address);
+export default new web3.eth.Contract(abi, address,{gasPrice:'20000000000',gas:5000000});
