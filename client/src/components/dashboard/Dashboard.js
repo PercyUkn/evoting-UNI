@@ -60,8 +60,8 @@ class Dashboard extends Component {
   onSubmit = async event => {
     event.preventDefault();
     this.setState({ message: "En progreso, espere" });
-    const account = "0xbD5f9982c0679BBc30DC27CFc6F44695c8D28e06" // Ganache "0x7553Bfa72d8942141467E113B165B651Dcb01fE0"; (Coincide con el del AdminPanel.js, no con el de voting.js)
-    //const account = "0xB6F966B122a93DBbb1bD7cf2ea3BCB4ED1922c4D" // Gorli, address del Admin
+    //const account = "0xbD5f9982c0679BBc30DC27CFc6F44695c8D28e06" // Ganache "0x7553Bfa72d8942141467E113B165B651Dcb01fE0"; (Coincide con el del AdminPanel.js, no con el de voting.js)
+    const account = "0xB6F966B122a93DBbb1bD7cf2ea3BCB4ED1922c4D" // Gorli, address del Admin
     await voting.methods.vote(this.state.value).send({
       from: account,
       gasLimit: "10000000"
