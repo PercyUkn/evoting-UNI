@@ -13,13 +13,15 @@ import {
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
+let endpoint="http://localhost:5000"
+
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
 
   try {
-    const res = await axios.get("/api/login");
+    const res = await axios.get(endpoint+"/api/login");
 
     dispatch({
       type: USER_LOADED,
@@ -56,7 +58,7 @@ export const register = ({
   });
 
   try {
-    const res = await axios.post("/api/register", body, config);
+    const res = await axios.post(endpoint+"/api/register", body, config);
 
     dispatch({
       type: REGISTER_SUCCESS,
@@ -89,7 +91,7 @@ export const login = (NIK, password) => async dispatch => {
   });
 
   try {
-    const res = await axios.post("/api/login", body, config);
+    const res = await axios.post(endpoint+"/api/login", body, config);
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -103,6 +105,7 @@ export const login = (NIK, password) => async dispatch => {
     });
 
     localStorage.setItem('user', nik) // Agregado: Guardadndo al usuario en la Session para obtener su Código UNI en el Dasj
+    console.log("Guardado en la sesión")
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -128,7 +131,7 @@ export const activate = (NIK, password) => async dispatch => {
   });
 
   try {
-    const res = await axios.post("/api/activate", body, config);
+    const res = await axios.post(endpoint+"/api/activate", body, config);
 
     dispatch({
       type: ACTIVATE_SUCCESS,

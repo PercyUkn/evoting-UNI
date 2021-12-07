@@ -1,17 +1,19 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const path = require("path");
-
+const cors = require("cors");
 const app = express();
 
 connectDB();
 
 app.use(express.json({ extended: false }));
 
+app.use(cors());
 app.use("/api/register", require("./routes/api/register"));
 app.use("/api/login", require("./routes/api/login"));
 app.use("/api/activate", require("./routes/api/activate"));
 app.use("/api/vote", require("./routes/api/vote"));
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

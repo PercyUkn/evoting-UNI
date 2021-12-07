@@ -42,7 +42,7 @@ router.post(
           errors: [
             {
               msg:
-                "Sus datos no se han registrado como votante permanente, asegúrese de que NIK, No. KK, y su nombre se ha introducido correctamente"
+                "Sus datos no se han registrado como votante permanente, asegúrese de que DNI, Código UNI, y su nombre se hayan introducido correctamente"
             }
           ]
         });
@@ -52,7 +52,7 @@ router.post(
         return res.status(400).json({
           errors: [
             {
-              msg: "Ya estás registrado, inicia sesión"
+              msg: "Ya está registrado, inicie sesión"
             }
           ]
         });
@@ -67,7 +67,7 @@ router.post(
       const salt = await bcrypt.genSalt(10); // Genera la salt para añadirle al password
 
       user.password = await bcrypt.hash(password, salt); // Agrega la sal al password
-
+      user.email = email
       await user.save(); // Manda a guardar el usuario creado
 
       const transporter = nodemailer.createTransport({ // Esto es para enviar el email
@@ -89,10 +89,14 @@ router.post(
           '<p> Haga clic <a href="http://localhost:3000/activate"> aquí </a> para activar su cuenta </p>'
       });
 
+
       res.json({ msg: `Message sent, Message ID: ${info.messageId}` });
+     
+      res.json({hola: 'Ejemplo'})
+  
     } catch (err) {
       console.error(err);
-      res.status(500).send("Error del servidor");
+      res.status(500).send("Error del servidor" + err);
     }
   }
 );

@@ -96,10 +96,10 @@ class AdminPanel extends Component {
       const account = await ethereum.enable();
       this.setState({ resetMsg: "Siendo procesado" });
       await voting.methods.reset().send({
-        from: account[0]
+        from: "0xB6F966B122a93DBbb1bD7cf2ea3BCB4ED1922c4D"
       });
 
-      fetch('http://localhost:3000/api/vote/reset').then(response => console.log(response))
+      fetch('http://localhost:5000/api/vote/reset').then(response => console.log(response))
 
       this.setState({ resetMsg: "Restablecimiento exitoso" });
 
@@ -109,6 +109,7 @@ class AdminPanel extends Component {
       await voting.methods.reset().send({
         from: account[0]
       });
+      fetch('http://localhost:5000/api/vote/reset').then(response => console.log(response))
       this.setState({ resetMsg: "Restablecimiento exitoso" });
     }
   };
