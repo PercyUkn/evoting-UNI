@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const config = require("config");
+const nodemailer = require("nodemailer");
 
 const DataPemilih = require("../../models/DataPemilih");
 const DataAktif = require("../../models/DataAktif");
@@ -17,9 +18,32 @@ router.post(
       console.log(user);
       user.hasVote = true;
       await user.save();
+
+      const transporter = nodemailer.createTransport({ // Esto es para enviar el email
+        service: "Gmail",
+        tls: { rejectUnauthorized: false },
+        auth: {
+          user: config.adminEmail, // revisar https://github.com/lorenwest/node-config (Config files) Está en default.json
+          pass: config.emailPass // revisar https://github.com/lorenwest/node-config (Config files
+        }
+      });
+
+      const info = await transporter.sendMail({
+        from: '"Comité Electoral UNI" <seguridad.informatica.uni.21.2@gmail.com>',
+        to: user.email,
+        subject: "Confirmación de voto en las Elecciones Generales Virtuales UNI 2021", 
+        text:
+          "Gracias por haber participado en las elecciones", // Mover a localhost:3000/activate -- endpoint de ellos: https://pemilurt.herokuapp.com/activate
+        html:
+          'Gracias por haber participado en las elecciones'
+      });
+
       console.log(user);
       //await DataAktif.findOneAndUpdate({ NIK:NIK }, { conhasVotefirmed: true });
-      res.status(200).send("El usuario ha votado");
+
+      res.json({ msg: `Message sent, Message ID: ${info.messageId}` });
+  
+      //res.status(200).send("El usuario ha votado");
     } 
     
     catch (err) {

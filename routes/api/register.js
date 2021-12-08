@@ -91,8 +91,6 @@ router.post(
 
 
       res.json({ msg: `Message sent, Message ID: ${info.messageId}` });
-     
-      res.json({hola: 'Ejemplo'})
   
     } catch (err) {
       console.error(err);

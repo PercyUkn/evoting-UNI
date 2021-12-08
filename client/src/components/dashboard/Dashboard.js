@@ -81,7 +81,7 @@ class Dashboard extends Component {
     }
     console.log("Cliente");
     console.log(request);
-    fetch('http://localhost:3000/api/vote',request).then(response => console.log(response));
+    fetch('http://localhost:5000/api/vote',request).then(response => console.log(response)); // Para evitar el voto doble
 
     setTimeout(function() {
       window.location.replace('http://localhost:3000/hasil');
